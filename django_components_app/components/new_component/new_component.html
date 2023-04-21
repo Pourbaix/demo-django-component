@@ -1,0 +1,10 @@
+{% load component_tags %}
+
+<div class="new_component">
+    <h3 class="title">{{ main_title }}</h3>
+    {% slot "image" %}
+    {% endslot %}
+    <p class="description">{{ description }}</p>
+    <i>{{ comment }}</i>
+    <p class="owner">Owner: <span class="proprio_name">{{ owner }}</span></p>
+</div>

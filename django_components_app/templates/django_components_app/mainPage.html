@@ -1,3 +1,6 @@
+{% load component_tags %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +14,33 @@
             display: flex;
             align-items: center;
             flex-direction: column;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .component_list {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .image_descr {
+            max-width: 150px;
+            height: auto;
         }
     </style>
+    {% component_css_dependencies %}
 </head>
 <body>
     <h1>Bienvenue sur la demo Django-components</h1>
+    <div class="component_list">
+        {% component 'new_component' main_title="Audi A9" description="Rapide, économique et durable" comment="En réparation" owner="Chris" %}
+        {% component 'new_component' main_title="Citroen Cactus" description="Économique, durable et pratique" comment="Prêt à l'emploi" owner="Jo" %}
+        {% component_block 'new_component' main_title="Peinture moderne" description="Chère, d'artiste renommé" comment="Un peu d'usure" owner="David" %}
+            {% fill 'image' %}
+                <img src="{% static 'django_components_app/image.jpg' %}" alt="Object picture" class="image_descr" />
+            {% endfill %}
+        {% endcomponent_block %}
+    </div>
 </body>
 </html>
