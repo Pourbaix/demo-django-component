@@ -1,3 +1,6 @@
+{% load component_tags %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +23,25 @@
             gap: 15px;
             flex-wrap: wrap;
         }
+
+        .image_descr {
+            max-width: 150px;
+            height: auto;
+        }
     </style>
+    {% component_css_dependencies %}
 </head>
 <body>
     <h1>Bienvenue sur la demo Django-components</h1>
-    <div class="components_list"></div>
+    <div class="components_list">
+        {% component 'new_component' main_title="Panneaux solaires" description="Économique et durable" comment="Installés" owner="Chris" %}
+        {% component 'new_component' main_title="Citroën Cactus" description="Économique, durable et pratique" comment="Prête à l'emploi" owner="John" %}
+        {% component_block 'new_component' main_title="Peinture moderne" description="Chère, d'artiste renommé" comment="Un peu d'usure" owner="David" %}
+            {% fill 'image' %}
+                <img src="{% static 'django_components_app/image.jpg' %}" alt="Object picture" class="image_descr" />
+            {% endfill %}
+        {% endcomponent_block %}
+    </div>
+    {% component_js_dependencies %}
 </body>
 </html>

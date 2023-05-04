@@ -1,0 +1,12 @@
+{% load component_tags %}
+
+<div class="new_component">
+    <h3 class="title">{{ main_title }}</h3>
+    {% slot "image" %}
+	    <p style="font-size: 12px">No image provided</p>
+    {% endslot %}
+    <p class="description">{{ description }}</p>
+    <em>{{ comment }}</em>
+    <p class="owner">Propriétaire: <span class="proprio_name">{{ owner }}</span></p>
+    <button onclick="newComponent.displayAlert('{{ owner }}')">Demande</button>
+</div>
