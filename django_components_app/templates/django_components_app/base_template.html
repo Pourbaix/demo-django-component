@@ -1,0 +1,16 @@
+{% load static %}
+{% load component_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tests</title>
+        {% component_css_dependencies %}
+    </head>
+    <body>
+        {% component_js_dependencies %}
+        <div class="container">
+            {{ component_tag }}
+        </div>
+    </body>
+</html>

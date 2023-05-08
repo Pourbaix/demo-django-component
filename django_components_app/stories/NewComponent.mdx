@@ -1,0 +1,46 @@
+import { Canvas, Meta, Story, Controls } from '@storybook/blocks';
+
+import * as NewComponentStories from './NewComponent.stories';
+
+<Meta of={NewComponentStories} />
+
+# New Component
+
+#### **`New Component`** is a component that can be used to display informations about an object.
+
+-> You can display multiple things like:
+- The *object name* 
+- The *object description*
+- The *object state*
+- The *object owner*
+
+### Preview of standard usage:
+
+<Canvas of={NewComponentStories.Standard} />
+
+## Interaction:
+
+The user has the possibility to click on the **`demande`** button to make a request to the owner of the objects. This action displays an alert element on the screen. 
+
+## Context data:
+
+You have to pass 4 context data to the component in order to render it:
+1. **`main_title`**, which correspond to the name of the object,
+2. **`description`**, which correspond to the description of the object,
+3. **`comment`**, which gives more information about the object,
+4. **`owner`**, which informs who is the owner of the object 
+
+## Slots:
+
+You can override an `'image'` slot to give a visual description about the object.
+
+<Canvas of={NewComponentStories.Advanced} />
+
+<details><summary></summary>
+<Controls of={NewComponentStories.Advanced} />
+</details>
+
+Here we just passed the following img element to the 'title' slot and so overriding it:
+```html 
+<img src="static/django_components_app/image.jpg" alt="Object picture" class="image_descr" />
+``` 

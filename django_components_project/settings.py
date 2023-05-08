@@ -30,7 +30,7 @@ ROOT_URLCONF = 'django_components_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["django_components_app/templates"],
         # 'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

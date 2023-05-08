@@ -1,0 +1,26 @@
+{% load static %}
+{% load component_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tests</title>
+        {% component_css_dependencies %}
+        <style>
+            .image_descr {
+                max-width: 150px;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        {% component_js_dependencies %}
+        <div class="container">
+            {% component_block 'new_component' main_title=main_title description=description comment=comment owner=owner %}
+                {% fill 'image' %}
+                    {{ image_slot | safe }}
+                {% endfill %}
+            {% endcomponent_block %}        
+        </div>
+    </body>
+</html>
